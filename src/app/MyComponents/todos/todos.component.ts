@@ -9,7 +9,7 @@ export class TodosComponent implements OnInit {
   localItem : string ;
 
   todos: Todo[];
- 
+
 
   constructor() {
     this.localItem = localStorage.getItem("todos")!;
@@ -20,8 +20,8 @@ export class TodosComponent implements OnInit {
     else{
       this.todos= JSON.parse(this.localItem);
     }
-      
-    
+
+
   }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class TodosComponent implements OnInit {
   }
   AddTodo(todo:Todo){
     console.log(todo);
-    
+
     this.todos.push(todo);
     localStorage.setItem("todos", JSON.stringify(this.todos));
   }

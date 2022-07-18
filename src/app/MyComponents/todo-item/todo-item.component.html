@@ -1,8 +1,18 @@
 <div class="my-3">
-  <h5>{{ todo.title }}</h5>
-  <p>{{ todo.desc }}</p>
-  <p>{{ todo.Id }}</p>
+  <div *ngIf="!shouldEditTodo" >
 
-  <button class="btn btn-sm btn-danger" (click)="onclick(todo)">Delete</button>
+    <h5>{{ todo.title }}</h5>
+    <p>{{ todo.desc }}</p>
+    <p>{{ todo.Id }}</p>
+
+    <button class="btn btn-sm btn-danger" (click)="onclick(todo)">Delete</button>
+    <button class="btn btn-sm btn-warning" (click)="onEdit(todo)">Edit</button>
+  </div>
+  <div *ngIf="shouldEditTodo">
+    <p>Editing todo</p>
+    <input type="text" [(ngModel)]="todo.title" />
+    <input type="text" [(ngModel)]="todo.desc" />
+    <input type="email" [(ngModel)]="todo.Id" />
+    <button class="btn btn-sm btn-primary" (click)="onSave(todo)">Save</button>
+  </div>
 </div>
-todo
